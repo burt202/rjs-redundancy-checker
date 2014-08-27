@@ -1,0 +1,22 @@
+{
+  "pathToProject": "/home/burt/dev/github/crud-list/",
+  "publicAssetDirPath": "public/",
+  "buildLogPath": "public/build/build.js.log",
+  "extensions": [
+    "html",
+    "js"
+  ],
+  "directoriesToIgnore": [
+    "bower_components",
+    "build",
+    "css"
+  ],
+  "filesToIgnore": [
+    "js/config.js",
+    "js/start.js",
+    "templates/layout.html"
+  ],
+  "allFilePath": "output/all.txt",
+  "usedFilePath": "output/used.txt",
+  "unUsedFilePath": "output/ununsed.txt"
+}
