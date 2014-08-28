@@ -18,5 +18,5 @@
   ],
   "allFilePath": "output/all.txt",
   "usedFilePath": "output/used.txt",
-  "unUsedFilePath": "output/ununsed.txt"
+  "unUsedFilePath": "output/unused.txt"
 }
