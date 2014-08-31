@@ -4,7 +4,7 @@ This tool, cross-references your rJS ([requireJS optimiser](http://requirejs.org
 
 ### Usage (requires NodeJS)
 
-* change the options in `config.json` for you project
+* change the options in `config.json` for your project
 * run `node run.js`
 
 ### Options
