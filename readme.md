@@ -1,6 +1,11 @@
-## rJS Redundancy Checker <sup>v0.1.0</sup>
+## rJS Redundancy Checker <sup>v0.2.0</sup>
 
-This tool cross-references your rJS ([requireJS optimiser](http://requirejs.org/docs/optimization.html)) build log with the public assets in your project and highlights which files are not being bundled and potentially not needed anymore. Useful if you want to keep redundancy in your codebase to a minimum. It comes with a set of configurable options which are explained below.
+This tool, cross-references your rJS ([requireJS optimiser](http://requirejs.org/docs/optimization.html)) build log with the public assets in your project and highlights which files are not being bundled and potentially not needed anymore. Useful if you want to keep redundancy in your codebase to a minimum. It comes with a set of configurable options which are explained below.
+
+### Usage (requires NodeJS)
+
+* change the options in `config.json` for you project
+* run `node run.js`
 
 ### Options
 
@@ -58,6 +63,10 @@ This tool cross-references your rJS ([requireJS optimiser](http://requirejs.org/
 </table>
 
 ### Changelog
+
+0.2.0 (31 Aug 2014)
+
+* replaces PHP implementation with JavaScript as it just makes more sense seeing this is a JS tool
 
 0.1.0 (28 Aug 2014)
 
