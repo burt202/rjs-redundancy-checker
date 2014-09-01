@@ -2,17 +2,18 @@ var fs = require('fs');
 var DirectoryScanner = require(__dirname + '/lib/directory-scanner');
 var FileWriter = require(__dirname + '/lib/file-writer');
 var BuildLogParser = require(__dirname + '/lib/build-log-parser');
+var UnusedBreakdown = require(__dirname + '/lib/unused-breakdown');
 
 var config = JSON.parse(fs.readFileSync(__dirname + '/config.json', 'utf8'));
 
 // SCAN CODEBASE FOR ALL FILES
 
 var scanner = new DirectoryScanner(
-  config.pathToProject,
-  config.publicAssetDirPath,
-  config.extensions,
-  config.directoriesToIgnore,
-  config.filesToIgnore
+    config.pathToProject,
+    config.publicAssetDirPath,
+    config.extensions,
+    config.directoriesToIgnore,
+    config.filesToIgnore
 );
 
 var allFiles = scanner.recursiveScan();
@@ -23,7 +24,6 @@ console.log('Ignored files: ' + config.filesToIgnore.join(', '));
 
 // WRITE SCANNED PATHS TO FILE
 
-allFiles.sort();
 var writer = new FileWriter(config.allFilePath, allFiles);
 writer.write();
 
@@ -32,17 +32,16 @@ console.log(allFiles.length + ' scanned paths written to: ' + config.allFilePath
 // READ FROM BUILD LOG AND FILTER/FORMAT LINES
 
 var parser = new BuildLogParser(
-  config.pathToProject,
-  config.publicAssetDirPath,
-  config.buildLogPath,
-  config.directoriesToIgnore
+    config.pathToProject,
+    config.publicAssetDirPath,
+    config.buildLogPath,
+    config.directoriesToIgnore
 );
 
 var usedFiles = parser.parse();
 
 // WRITE USED PATHS TO FILE
 
-usedFiles.sort();
 var writer = new FileWriter(config.usedFilePath, usedFiles);
 writer.write();
 
@@ -58,13 +57,13 @@ console.log(unUsedFiles.length + ' unused paths written to: ' + config.unUsedFil
 
 // WORK HOW MANY LINES CAN BE DELETED
 
-console.log('Unused file breakdown:');
-var lineSaving = 0;
+var breakdown = new UnusedBreakdown(unUsedFiles, config.pathToProject);
+var results = breakdown.compile();
 
-unUsedFiles.forEach(function (file) {
-  var count = fs.readFileSync(config.pathToProject + file, 'utf8').split('\n').length;
-  lineSaving += count;
-  console.log(file + ' (' + count + ')');
+console.log('Unused file breakdown:');
+
+results.breakdown.forEach(function (info) {
+    console.log(info);
 });
 
-console.log('Total: ' + lineSaving + ' line saving');
+console.log('Total: ' + results.lineSaving + ' line saving');
