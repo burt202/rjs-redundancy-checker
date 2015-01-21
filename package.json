@@ -1,0 +1,21 @@
+{
+  "name": "rjs-redundancy-checker",
+  "description": "Reports client-side redundancy using rjs build log",
+  "keywords": [
+    "rjs",
+    "redundancy",
+    "checker",
+    "requirejs"
+  ],
+  "author": "Aaron Burtnyk <aaron@burtdev.net>",
+  "version": "0.3.0",
+  "dependencies": {
+    "underscore": "1.7.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/burt202/rjs-redundancy-checker.git"
+  },
+  "license": "MIT"
+}

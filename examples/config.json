@@ -16,7 +16,8 @@
     "js/start.js",
     "templates/layout.html"
   ],
-  "allFilePath": "output/all.txt",
-  "usedFilePath": "output/used.txt",
-  "unUsedFilePath": "output/unused.txt"
+  "allFilePath": "examples/output/all.txt",
+  "usedFilePath": "examples/output/used.txt",
+  "unUsedFilePath": "examples/output/unused.txt",
+  "disableConsoleLogs": false
 }
